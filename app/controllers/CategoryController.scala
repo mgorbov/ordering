@@ -7,9 +7,8 @@ import play.api.Logger
 import play.api.libs.json.{JsError, JsSuccess, Json}
 import play.api.mvc.{Action, Controller}
 import play.modules.reactivemongo._
-import reactivemongo.api.{Cursor, ReadPreference}
-import reactivemongo.play.json._
-import reactivemongo.play.json.collection._
+import reactivemongo.api.ReadPreference
+import reactivemongo.play.json.collection.JSONCollection
 import utils.Errors
 
 import scala.concurrent.{ExecutionContext, Future}
@@ -18,8 +17,7 @@ import scala.concurrent.{ExecutionContext, Future}
 class CategoryController @Inject()(val reactiveMongoApi: ReactiveMongoApi)
   (implicit exec: ExecutionContext)
     extends Controller
-      with MongoController
-      with ReactiveMongoComponents {
+      with MongoController with ReactiveMongoComponents {
 
   private[this] def categoryFuture: Future[JSONCollection] = database.map(_.collection[JSONCollection]("category"))
 
