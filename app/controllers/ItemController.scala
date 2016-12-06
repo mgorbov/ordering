@@ -15,8 +15,8 @@ import reactivemongo.play.json._
 import scala.concurrent.{ExecutionContext, Future}
 
 @Singleton
-class ItemsController @Inject()(val reactiveMongoApi: ReactiveMongoApi)
-  (implicit exec: ExecutionContext)
+class ItemController @Inject()(val reactiveMongoApi: ReactiveMongoApi)
+                              (implicit exec: ExecutionContext)
     extends Controller
       with MongoController
       with ReactiveMongoComponents {

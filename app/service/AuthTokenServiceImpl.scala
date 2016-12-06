@@ -3,7 +3,7 @@ package service
 import java.util.UUID
 import javax.inject.Inject
 
-import scala.concurrent.Future
+import scala.concurrent.{ExecutionContext, Future}
 import scala.concurrent.duration._
 import scala.language.postfixOps
 import com.mohiva.play.silhouette.api.util.Clock
@@ -11,7 +11,12 @@ import dao.AuthTokenDAO
 import model.AuthToken
 import org.joda.time.DateTimeZone
 
-class AuthTokenServiceImpl @Inject() (authTokenDAO: AuthTokenDAO, clock: Clock) extends AuthTokenService {
+class AuthTokenServiceImpl @Inject() (
+                                       authTokenDAO: AuthTokenDAO,
+                                       clock: Clock
+                                     )
+                                     (implicit ec: ExecutionContext)
+                                      extends AuthTokenService {
 
   /**
     * Creates a new auth token and saves it in the backing store.
@@ -20,8 +25,13 @@ class AuthTokenServiceImpl @Inject() (authTokenDAO: AuthTokenDAO, clock: Clock) 
     * @param expiry The duration a token expires.
     * @return The saved auth token.
     */
-  def create(userID: UUID, expiry: FiniteDuration = 5 minutes) = {
-    val token = AuthToken(UUID.randomUUID(), userID, clock.now.withZone(DateTimeZone.UTC).plusSeconds(expiry.toSeconds.toInt))
+  def create(
+              userID: UUID,
+              expiry: FiniteDuration = 5 minutes
+            ) = {
+    val token = AuthToken(UUID.randomUUID(), userID, clock.now.withZone(DateTimeZone.UTC)
+      .plusSeconds(expiry.toSeconds.toInt))
+
     authTokenDAO.save(token)
   }
 
