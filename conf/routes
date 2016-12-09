@@ -6,15 +6,18 @@
 #GET     /                           controllers.ItemsController.User
 
 # Map static resources from the /public folder to the /assets URL path
-GET     /assets/*file               controllers.Assets.at(path="/public", file)
+GET         /assets/*file        controllers.Assets.at(path="/public", file)
 
-GET     /items                      controllers.ItemController.readItems
-POST    /items                      controllers.ItemController.createItems
+POST        /signIn              controllers.SignInController.submit
+POST        /signUp              controllers.SignUpController.submit
 
-GET     /categories                 controllers.CategoryController.readCategories
-POST    /categories                 controllers.CategoryController.createCategories
+GET         /items               controllers.ItemController.readItems
+POST        /items               controllers.ItemController.createItems
 
-GET     /orders                     controllers.OrderController.createOrders
-POST    /orders                     controllers.OrderController.readOrders
-POST    /order                      controllers.OrderController.createOrder
+GET         /categories          controllers.CategoryController.readCategories
+POST        /categories          controllers.CategoryController.createCategories
+
+GET         /orders              controllers.OrderController.createOrders
+POST        /orders              controllers.OrderController.readOrders
+POST        /order               controllers.OrderController.createOrder
     

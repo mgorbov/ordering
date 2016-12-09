@@ -1,4 +1,4 @@
-package model
+package models
 
 import play.api.libs.json.Json
 
@@ -18,12 +18,10 @@ case class OrderLine(
                       sum: Long)
 
 object Order {
-  implicit val formatter = Json.format[Order]
+  implicit val OrderLineFormat = Json.format[OrderLine]
+  implicit val OrderFormatter = Json.format[Order]
 }
 
-object OrderLine {
-  implicit val formatter = Json.format[OrderLine]
-}
 
 
 

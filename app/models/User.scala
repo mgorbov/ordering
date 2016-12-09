@@ -1,4 +1,4 @@
-package model
+package models
 
 import java.util.UUID
 
@@ -8,7 +8,6 @@ import play.api.libs.json.Json
 case class User(
                  userID: UUID,
                  loginInfo: LoginInfo,
-                 login: Option[String],
                  firstName: Option[String],
                  lastName: Option[String],
                  email: Option[String]) extends Identity
