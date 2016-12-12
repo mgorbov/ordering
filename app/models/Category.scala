@@ -6,7 +6,7 @@ case class Category(
                      id: Long,
                      externalId: String,
                      name: String,
-                     $$treeLevel: Int
+                     treeLevel: Int
                    )
 
 object Category {
