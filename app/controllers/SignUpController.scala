@@ -8,12 +8,12 @@ import com.mohiva.play.silhouette.api.repositories.AuthInfoRepository
 import com.mohiva.play.silhouette.api.util.PasswordHasher
 import com.mohiva.play.silhouette.impl.providers.CredentialsProvider
 import forms.SignUpForm
-import models.User
+import models.{Role, User}
 import play.api.libs.concurrent.Execution.Implicits._
 import play.api.libs.json.Json
-import play.api.mvc.{Action, Controller}
+import play.api.mvc.Controller
 import service.UserService
-import utils.auth.DefaultEnv
+import utils.auth.{DefaultEnv, WithRole}
 
 import scala.concurrent.Future
 
@@ -32,12 +32,9 @@ class SignUpController @Inject() (
                                    passwordHasher: PasswordHasher)
   extends Controller {
 
-  /**
-    * Handles the submitted JSON data.
-    *
-    * @return The result to display.
-    */
-  def submit = Action.async(parse.json) { implicit request =>
+  import silhouette.SecuredAction
+
+  def submit = SecuredAction(WithRole(Role.admin)).async(parse.json) { implicit request =>
     request.body.validate[SignUpForm.Data].map { data =>
       val loginInfo = LoginInfo(CredentialsProvider.ID, data.email)
       userService.retrieve(loginInfo).flatMap {
@@ -50,7 +47,8 @@ class SignUpController @Inject() (
             loginInfo = loginInfo,
             firstName = Some(data.firstName),
             lastName = Some(data.lastName),
-            email = Some(data.email)
+            email = Some(data.email),
+            role =  Some(Role.withName(data.role))
           )
           for {
             user <- userService.save(user.copy())

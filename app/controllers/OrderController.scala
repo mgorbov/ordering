@@ -2,21 +2,29 @@ package controllers
 
 import javax.inject.{Inject, Singleton}
 
-import models.Order
+import com.mohiva.play.silhouette.api.Silhouette
+import models.{Order, Role}
 import play.api.libs.json.{JsError, JsSuccess, Json}
-import play.api.mvc.{Action, Controller}
+import play.api.mvc.Controller
 import repos.MongoOrdersRepo
 import utils.Errors
+import utils.auth.{DefaultEnv, WithRole}
 
 import scala.concurrent.{ExecutionContext, Future}
 
-
+//TODO separate into controller and service
 @Singleton
-class OrderController @Inject()(val ordersRepo: MongoOrdersRepo)
+class OrderController @Inject()(
+                                 val ordersRepo: MongoOrdersRepo,
+                                 silhouette: Silhouette[DefaultEnv]
+                               )
                                (implicit exec: ExecutionContext)
   extends Controller {
 
-  def createOrder = Action.async(parse.json) { request =>
+  import silhouette.SecuredAction
+
+
+  def createOrder = SecuredAction(WithRole(Role.user)).async(parse.json) { request =>
     Json.fromJson[Order](request.body) match {
       case JsSuccess(newOrder, _) =>
         ordersRepo.create(newOrder) map {
@@ -28,7 +36,7 @@ class OrderController @Inject()(val ordersRepo: MongoOrdersRepo)
     }
   }
 
-  def createOrders = Action.async(parse.json) { request =>
+  def createOrders = SecuredAction(WithRole(Role.user)).async(parse.json) { request =>
     Json.fromJson[Seq[Order]](request.body) match {
       case JsSuccess(newOrders, _) =>
         ordersRepo.create(newOrders).map {
@@ -40,7 +48,7 @@ class OrderController @Inject()(val ordersRepo: MongoOrdersRepo)
     }
   }
 
-  def readOrders = Action.async {
+  def readOrders = SecuredAction(WithRole(Role.user)).async {
     ordersRepo.readAll().map {
       orders => Ok(Json.toJson(orders))
     }

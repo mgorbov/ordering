@@ -34,7 +34,7 @@ class CategoryController @Inject()(
     }
   }
 
-  def readCategories = Action.async {
+  def readCategories = SecuredAction(WithRole(Role.user)).async {
     categoriesRepo.readAll().map {
       categories => Ok(Json.toJson(categories))
     }

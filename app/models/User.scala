@@ -3,12 +3,22 @@ package models
 import java.util.UUID
 
 import com.mohiva.play.silhouette.api.{Identity, LoginInfo}
-import models.Role.Role
-import play.api.libs.json.Json
+import play.api.libs.json._
 
 object Role extends Enumeration {
   type Role = Value
-  val unauthorized, user, admin = Value
+
+  val unauthorized = Value("unauthorized")
+  val user = Value("user")
+  val admin = Value("admin")
+
+  implicit val formatterRole = {
+    val writes = Writes[Role.Value](role => JsString(role.id.toString))
+    val reads = new Reads[Role.Value] {
+      def reads(json: JsValue):JsResult[Role.Value] = JsSuccess(Role(json.toString().toInt))
+    }
+    Format[Role.Value](reads, writes)
+  }
 }
 
 case class User(
@@ -17,11 +27,10 @@ case class User(
                  firstName: Option[String],
                  lastName: Option[String],
                  email: Option[String],
-                 role: Option[Role]
+                 role: Option[Role.Value]
                ) extends Identity
 
 object User {
   implicit val formatterUser = Json.format[User]
-  implicit val formatterRole = Json.format[Role]
 }
 
