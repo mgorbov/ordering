@@ -34,7 +34,7 @@ class SignUpController @Inject() (
 
   import silhouette.SecuredAction
 
-  def submit = SecuredAction(WithRole(Role.admin)).async(parse.json) { implicit request =>
+  def submit = silhouette.UnsecuredAction.async(parse.json) { implicit request =>
     request.body.validate[SignUpForm.Data].map { data =>
       val loginInfo = LoginInfo(CredentialsProvider.ID, data.email)
       userService.retrieve(loginInfo).flatMap {

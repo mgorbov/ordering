@@ -1,0 +1,138 @@
+[
+  {
+    "id": 0,
+    "categoryId": 2,
+    "code": "0",
+    "article": "ОТ-00001",
+    "name": "Отвертка крестовая маленькая",
+    "price": 100,
+    "stock": 200
+  },
+  {
+    "id": 1,
+    "categoryId": 2,
+    "code": "1",
+    "article": "ОТ-00002",
+    "name": "Отвертка крестовая средняя",
+    "price": 120,
+    "stock": 200
+  },
+  {
+    "id": 2,
+    "categoryId": 2,
+    "code": "2",
+    "article": "ОТ-00003",
+    "name": "Отвертка крестовая большая",
+    "price": 140,
+    "stock": 200
+  },
+
+  {
+    "id": 3,
+    "categoryId":3,
+    "code": "3",
+    "article": "ОТ-00004",
+    "name": "Отвертка крестовая маленькая ударная",
+    "price": 110,
+    "stock": 0
+  },
+  {
+    "id": 4,
+    "categoryId": 3,
+    "code": "4",
+    "article": "ОТ-00005",
+    "name": "Отвертка крестовая средняя ударная",
+    "price": 130,
+    "stock": 200
+  },
+  {
+    "id": 5,
+    "categoryId": 3,
+    "code": "5",
+    "article": "ОТ-00006",
+    "name": "Отвертка крестовая большая ударная",
+    "price": 150,
+    "stock": 200
+  },
+  {
+    "id": 6,
+    "categoryId": 5,
+    "code": "6",
+    "article": "ДР-00007",
+    "name": "Дрель Bosсh",
+    "price": 2000,
+    "stock": 200
+  },
+  {
+    "id": 7,
+    "categoryId": 5,
+    "code": "7",
+    "article": "ДР-00008",
+    "name": "Дрель Stanley",
+    "price": 1500,
+    "stock": 200
+  },
+  {
+    "id": 8,
+    "categoryId": 5,
+    "code": "8",
+    "article": "ДР-00009",
+    "name": "Дрель Makita",
+    "price": 1800,
+    "stock": 200
+  },
+  {
+    "id": 9,
+    "categoryId": 6,
+    "code": "9",
+    "article": "ШР-00010",
+    "name": "Шуруповерт Bosсh",
+    "price": 2000,
+    "stock": 200
+  },
+  {
+    "id": 10,
+    "categoryId": 6,
+    "code": "10",
+    "article": "ШР-00011",
+    "name": "Шуруповерт Stanley",
+    "price": 1500,
+    "stock": 200
+  },
+  {
+    "id": 11,
+    "categoryId": 6,
+    "code": "11",
+    "article": "ШР-00012",
+    "name": "Шуруповерт Makita",
+    "price": 1800,
+    "stock": 200
+  },
+  {
+    "id": 12,
+    "categoryId": 7,
+    "code": "12",
+    "article": "ПФ-00013",
+    "name": "Перфоратор Bosсh",
+    "price": 1800,
+    "stock": 200
+  },
+  {
+    "id": 13,
+    "categoryId": 7,
+    "code": "13",
+    "article": "ПФ-00014",
+    "name": "Перфоратор Stanley",
+    "price": 1800,
+    "stock": 200
+  },
+  {
+    "id": 14,
+    "categoryId": 7,
+    "code": "14",
+    "article": "ПФ-00015",
+    "name": "Перфоратор Makita",
+    "price": 1800,
+    "stock": 200
+  }
+]

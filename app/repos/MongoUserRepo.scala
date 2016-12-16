@@ -12,5 +12,5 @@ class MongoUserRepo @Inject()(val reactiveMongoApi: ReactiveMongoApi)
   extends MongoRepo[User] {
 
   override protected val collectionFuture: Future[JSONCollection] =
-    reactiveMongoApi.database.map(_.collection[JSONCollection]("orders"))
+    reactiveMongoApi.database.map(_.collection[JSONCollection]("users"))
 }

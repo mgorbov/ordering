@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="ordering">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Page title set in pageTitle directive -->
+    <!--<title page-title></ttle>-->
+
+    <!-- Bootstrap and Fonts -->
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link id="loadBefore" href="css/style.css" rel="stylesheet">
+
+    <link href="bower_components/angular-ui-grid/ui-grid.min.css" rel="stylesheet">
+
+</head>
+
+<body ng-controller="MainCtrl as main" class="">
+
+<!-- Main view  -->
+<div ui-view></div>
+
+<!-- Main Angular scripts-->
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="bower_components/ui-router/angular-ui-router.min.js"></script>
+<script src="bower_components/angular-ui-grid/ui-grid.min.js"></script>
+<script src="bower_components/angular-animate/angular-animate.min.js"></script>
+<script src="bower_components/angular-touch/angular-touch.min.js"></script>
+<script src="bower_components/CSV-JS/csv.js"></script>
+
+<!-- Anglar App Script -->
+<script src="core/app.js"></script>
+<script src="core/config.js"></script>
+<script src="core/controller.js"></script>
+<script src="core/items/controller.js"></script>
+<script src="core/item/controller.js"></script>
+<script src="core/order/controller.js"></script>
+<script src="core/orders/controller.js"></script>
+
+</body>
+</html>

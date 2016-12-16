@@ -1,0 +1,18 @@
+{
+  "name": "client",
+  "authors": [
+    "mgorbov <gorbov.mikhail@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "dependencies": {
+    "angular": "1.4.14",
+    "angular-animate": "1.4.14",
+    "angular-touch": "1.4.14",
+    "font-awesome": "^4.7.0",
+    "CSV-JS": "csv-js#^1.1.1",
+    "angular-local-storage": "^0.5.2"
+  }
+}

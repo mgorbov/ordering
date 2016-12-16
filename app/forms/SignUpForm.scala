@@ -1,6 +1,5 @@
 package forms
 
-import models.Role
 import play.api.data.Form
 import play.api.data.Forms._
 import play.api.libs.json.Json

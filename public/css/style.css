@@ -1,0 +1,150 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700");
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,300,500,700");
+
+#items-grid .ui-grid-render-container-body .ui-grid-viewport {
+  overflow-x: auto !important; //remove horizontal scrollbar if not necessary
+}
+
+#cart-grid .ui-grid-render-container-body .ui-grid-viewport {
+  overflow-x: auto !important; //remove horizontal scrollbar if not necessary
+}
+
+.btn-primary {
+  background-color: #1ab394;
+  border-color: #1ab394;
+  color: #fff;
+}
+
+.bt-cr-order {
+  position: absolute;
+  left: 20px;
+  right: 150px;
+  top: 70.8%;
+  bottom: 10px;
+  margin-top: 15px;
+}
+
+.items-grid {
+  position: absolute;
+  left: 20%;
+  right: 20px;
+  top: 50px;
+  bottom: 29%;
+  margin-left: 15px;
+  margin-top: 15px;
+}
+
+.category-grid {
+  position: absolute;
+  left: 20px;
+  right: 80%;
+  top: 50px;
+  bottom: 29%;
+  margin-top: 15px;
+}
+
+.cart-grid {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  top: 75%;
+  bottom: 10px;
+  margin-top: 15px;
+}
+
+.nav > li a:hover,
+.nav > li a:focus {
+  background: #fff;
+  color: #1ab394;
+}
+
+.navbar {
+  border-bottom: 1px solid #d4d4d4;
+}
+
+.navbar-right {
+  margin-right: 10px;
+}
+
+.bg-white {
+  background-color: #ffffff;
+}
+
+.nav > li > a {
+  padding: 15px 20px;
+  color: #676a6c;
+  font-weight: 600;
+}
+
+.nav > li > a i {
+  margin-right: 6px;
+}
+
+.nav > li.active > a {
+  color: #1ab394;
+}
+
+body {
+  font-family: "open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  color: #676a6c;
+  overflow-x: hidden;
+  background-color: #f3f3f4;
+}
+
+.nopadding {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.navbar-brand-green {
+  background: #1ab394;
+  color: #fff;
+  padding: 15px 25px;
+  font-size: 18px;
+  height: 50px;
+}
+
+.orders-grid {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  top: 110px;
+  bottom: 10px;
+}
+
+.order-items-grid {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  top: 110px;
+  bottom: 10px;
+}
+
+.doc-hat {
+  font-size: large;
+}
+
+.form-login {
+  background-color: #EDEDED;
+  padding: 10px 20px 20px;
+  border-radius: 15px;
+  border: 5px #d2d2d2;
+  box-shadow:0 1px 0 #cfcfcf;
+  margin-top: 10%;
+}
+
+h4 {
+  border:0 solid #fff;
+  border-bottom-width:1px;
+  padding-bottom:10px;
+  text-align: center;
+}
+
+.form-control {
+  border-radius: 10px;
+}
+
+.wrapper {
+  text-align: center;
+}

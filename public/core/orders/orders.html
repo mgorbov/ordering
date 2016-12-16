@@ -1,0 +1,15 @@
+<div ng-controller="OrdersCtrl">
+    <div class="row">
+        <div class="col-xs-1 col-xs-offset-2">
+            Период
+        </div>
+        <div class="col-xs-2">
+            <input type="date" name="input" ng-model="dateFrom" ng-change="filterChange()" placeholder="yyyy-MM-dd" />
+        </div>
+        <div class="col-xs-2">
+            <input type="date" name="input" ng-model="dateTo" ng-change="filterChange()" placeholder="ММ-yyyy-dd"/>
+        </div>
+    </div>
+    <div id="orders-grid" ui-grid="ordersGridOptions" class="orders-grid"
+         ui-grid-auto-resize ui-grid-selection></div>
+</div>

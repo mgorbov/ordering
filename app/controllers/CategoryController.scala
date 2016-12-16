@@ -6,7 +6,7 @@ import com.mohiva.play.silhouette.api.Silhouette
 import models.{Category, Role}
 import play.api.Logger
 import play.api.libs.json.{JsError, JsSuccess, Json}
-import play.api.mvc.{Action, Controller}
+import play.api.mvc.Controller
 import repos.MongoCategoriesRepo
 import utils.Errors
 import utils.auth.{DefaultEnv, WithRole}

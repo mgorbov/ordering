@@ -2,22 +2,20 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
+POST        /api/signIn             controllers.SignInController.submit
+POST        /api/signUp             controllers.SignUpController.submit
+
+GET         /api/items              controllers.ItemController.readItems
+POST        /api/items              controllers.ItemController.createItems
+
+GET         /api/categories         controllers.CategoryController.readCategories
+POST        /api/categories         controllers.CategoryController.createCategories
+
+GET         /api/orders             controllers.OrderController.createOrders
+POST        /api/orders             controllers.OrderController.readOrders
+POST        /api/order              controllers.OrderController.createOrder
+
 # Home page
-#GET     /                           controllers.ItemsController.User
-
+GET         /                       controllers.Assets.at(path="/public", file="index.html")
 # Map static resources from the /public folder to the /assets URL path
-GET         /assets/*file        controllers.Assets.at(path="/public", file)
-
-POST        /signIn              controllers.SignInController.submit
-POST        /signUp              controllers.SignUpController.submit
-
-GET         /items               controllers.ItemController.readItems
-POST        /items               controllers.ItemController.createItems
-
-GET         /categories          controllers.CategoryController.readCategories
-POST        /categories          controllers.CategoryController.createCategories
-
-GET         /orders              controllers.OrderController.createOrders
-POST        /orders              controllers.OrderController.readOrders
-POST        /order               controllers.OrderController.createOrder
-    
+GET         /*file                  controllers.Assets.at(path="/public", file)
